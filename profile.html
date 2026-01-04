@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - PYQ HUB</title>
+    <link rel="stylesheet" href="style1.css">
+    <style>
+        .profile-container {
+            background: #fff;
+            padding: 40px 35px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            width: 450px;
+            max-width: 90%;
+            text-align: center;
+        }
+
+        .profile-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #003153, #2193b0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 40px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .profile-name {
+            font-size: 28px;
+            color: #003366;
+            margin-bottom: 5px;
+        }
+
+        .profile-email {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 25px;
+        }
+
+        .profile-info {
+            text-align: left;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .profile-info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .profile-info-item:last-child {
+            border-bottom: none;
+        }
+
+        .profile-label {
+            font-weight: 600;
+            color: #555;
+        }
+
+        .profile-value {
+            color: #333;
+        }
+
+        .btn-logout {
+            width: 100%;
+            padding: 14px;
+            font-size: 16px;
+            border: none;
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .btn-logout:hover {
+            background: linear-gradient(45deg, #c0392b, #e74c3c);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .btn-home {
+            width: 100%;
+            padding: 14px;
+            font-size: 16px;
+            border: none;
+            background: linear-gradient(45deg, #003153, #2193b0);
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+            text-decoration: none;
+            display: block;
+        }
+
+        .btn-home:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .loading {
+            text-align: center;
+            padding: 50px;
+            color: #555;
+        }
+
+        .not-logged-in {
+            text-align: center;
+        }
+
+        .not-logged-in p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .btn-signin {
+            width: 100%;
+            padding: 14px;
+            font-size: 16px;
+            border: none;
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+            text-decoration: none;
+            display: block;
+        }
+
+        .btn-signin:hover {
+            background: linear-gradient(45deg, #45a049, #4CAF50);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container" id="profileContainer">
+        <div class="loading" id="loadingState">
+            <p>Loading profile...</p>
+        </div>
+
+        <!-- Profile Content (shown when logged in) -->
+        <div id="profileContent" style="display: none;">
+            <div class="profile-avatar" id="profileAvatar">U</div>
+            <h2 class="profile-name" id="profileName">User Name</h2>
+            <p class="profile-email" id="profileEmail">user@email.com</p>
+            
+            <div class="profile-info">
+                <div class="profile-info-item">
+                    <span class="profile-label">📚 Year</span>
+                    <span class="profile-value" id="profileYear">-</span>
+                </div>
+                <div class="profile-info-item">
+                    <span class="profile-label">🎓 Stream</span>
+                    <span class="profile-value" id="profileStream">-</span>
+                </div>
+                <div class="profile-info-item">
+                    <span class="profile-label">📧 Email</span>
+                    <span class="profile-value" id="profileEmailInfo">-</span>
+                </div>
+            </div>
+
+            <a href="index.html" class="btn-home">🏠 Go to Home</a>
+            <button class="btn-logout" id="logoutBtn">🚪 Logout</button>
+        </div>
+
+        <!-- Not Logged In State -->
+        <div id="notLoggedIn" style="display: none;">
+            <h2>Not Logged In</h2>
+            <div class="not-logged-in">
+                <p>Please sign in to view your profile</p>
+                <a href="signup.html" class="btn-signin">Sign In / Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="profile.js"></script>
+</body>
+</html>

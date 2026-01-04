@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PYQ HUB</title>
+    <link rel="stylesheet"href="style.css">
+    <style>
+      /* Dropdown styles */
+      .nav-item {
+        position: relative;
+      }
+      .dropdown {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: #003153;
+        min-width: 150px;
+        border-radius: 4px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        z-index: 100;
+      }
+      .dropdown a {
+        display: block;
+        padding: 12px 15px;
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+      }
+      .dropdown a:hover {
+        background-color: white;
+        color: navy;
+      }
+      .nav-item:hover .dropdown {
+        display: block;
+      }
+      .nav-item.account-btn > a {
+        cursor: pointer;
+      }
+      /* Hide elements based on auth state */
+      .logged-in-only { display: none; }
+      .logged-out-only { display: block; }
+      body.user-logged-in .logged-in-only { display: block; }
+      body.user-logged-in .logged-out-only { display: none; }
+    </style>
+</head>
+<body>
+
+   <header>
+    <div class="navbar">
+        <div class="picture"></div>
+
+        <div class="logo"> 
+             PYQ HUB 
+        </div>
+
+<div class="sidebar">
+    <div class="nav-item"><a href="index.html">Home</a></div>
+    <div class="nav-item"><a href="pyq.html">Get PYQs</a></div>
+    <div class="nav-item"><a href="upload.html">Upload</a></div>
+    <div class="nav-item account-btn">
+      <a id="accountLink">Account ▼</a>
+      <div class="dropdown" id="accountDropdown">
+        <!-- Shown when logged out -->
+        <div class="logged-out-only">
+          <a href="login.html">🔐 Login</a>
+          <a href="signup.html">📝 Sign Up</a>
+        </div>
+        <!-- Shown when logged in -->
+        <div class="logged-in-only">
+          <a href="profile.html">👤 My Profile</a>
+          <a href="#" id="logoutLink">🚪 Logout</a>
+        </div>
+      </div>
+    </div>
+</div>
+</div>
+</header>
+
+<div class="hero-sec">
+  <div class="hero-image"></div>
+  
+  <div class="hero-para">
+    <h1>Welcome to PYQ HUB</h1>
+    <p>Your one-stop destination for Previous Year Question Papers.</p>
+    <p>Find, download, and contribute question papers for all courses and semesters in just a few clicks!</p>
+  </div>
+</div>
+
+
+<div class="para">
+  <div class="text">
+    <p id="question">What is PYQ HUB?</p>
+    <p>
+      Our platform is designed exclusively for students of the University of Engineering & Management (UEM), offering easy and organized access to previous year question papers across all departments and semesters. Whether you're preparing for exams, revising important topics, or simply exploring the paper pattern, PYQ HUB is your trusted academic companion. With a clean interface, categorized papers, and regular updates, we help you study smarter and perform better. Say goodbye to scattered files — and hello to focused preparation.
+
+
+    </p>
+  </div>
+  <div id="students"></div>
+</div>
+
+
+  <div class="para2">
+  <div id="students2"></div>
+  <div class="text2">
+    <p id="question2">Why PYQ HUB stands out?</p>
+    <p>PYQ HUB offers a centralized collection of all previous year question papers, making exam preparation more efficient than ever. Our platform is updated regularly with the latest semester papers, ensuring you always have access to the most relevant material. With an easy-to-use search and filter system, you can quickly find exactly what you need. All papers are neatly categorized by subject, department, and semester, so there’s no confusion. Built by students for students, PYQ HUB understands what truly matters when it comes to smart and stress-free exam preparation.</p>
+  </div>
+</div>
+
+</main>
+
+
+    <footer class="footer">
+  <div class="footer-content">
+    <h3>PYQ HUB</h3>
+    <p>Access Previous Year Question Papers anytime, anywhere.</p>
+    <p>gmail:mtandrita05@gmail.com</p>
+    <p>gmail:paulsutapa38@gmail.com</p>
+    <p class="copyright">© 2025 PYQ HUB. All rights reserved.</p>
+  </div>
+</footer>
+
+    <script type="module">
+      import { supabase, getCurrentUser } from './supabase-config.js';
+      
+      // Check if user is logged in
+      async function checkAuth() {
+        const user = await getCurrentUser();
+        if (user) {
+          document.body.classList.add('user-logged-in');
+        } else {
+          document.body.classList.remove('user-logged-in');
+        }
+      }
+      
+      // Logout handler
+      document.getElementById('logoutLink')?.addEventListener('click', async (e) => {
+        e.preventDefault();
+        await supabase.auth.signOut();
+        alert('Logged out successfully!');
+        window.location.reload();
+      });
+      
+      checkAuth();
+    </script>
+    <script src="index.js"></script>
+</body>
+</html>

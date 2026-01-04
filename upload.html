@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload PYQ - PYQ HUB</title>
+  <link rel="stylesheet" href="style1.css">
+  <style>
+    .container {
+      max-width: 500px;
+    }
+    
+    .file-input-wrapper {
+      position: relative;
+      margin-bottom: 15px;
+    }
+    
+    .file-input-wrapper input[type="file"] {
+      width: 100%;
+      padding: 12px;
+      border: 2px dashed #ccc;
+      border-radius: 8px;
+      background: #f9f9f9;
+      cursor: pointer;
+    }
+    
+    .file-input-wrapper input[type="file"]:hover {
+      border-color: #2193b0;
+      background: #f0f9ff;
+    }
+    
+    #status {
+      text-align: center;
+      padding: 10px;
+      margin-top: 15px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+    
+    #status.success {
+      background: #d4edda;
+      color: #155724;
+    }
+    
+    #status.error {
+      background: #f8d7da;
+      color: #721c24;
+    }
+    
+    #status.uploading {
+      background: #fff3cd;
+      color: #856404;
+    }
+    
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      color: #2193b0;
+      text-decoration: none;
+    }
+    
+    .back-link:hover {
+      text-decoration: underline;
+    }
+    
+    .login-prompt {
+      text-align: center;
+      padding: 30px;
+    }
+    
+    .login-prompt p {
+      margin-bottom: 20px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>📤 Upload Question Paper</h2>
+    <p class="subtitle">Share PYQs with fellow students</p>
+    
+    <!-- Login Required Message (shown when not logged in) -->
+    <div id="loginPrompt" class="login-prompt" style="display: none;">
+      <p>⚠️ You need to login to upload papers</p>
+      <a href="login.html"><button>Login</button></a>
+    </div>
+    
+    <!-- Upload Form (shown when logged in) -->
+    <form id="uploadForm" style="display: none;">
+      <!-- Stream -->
+      <label for="stream">Stream:</label>
+      <select id="stream" required>
+        <option value="" disabled selected>Select Stream</option>
+        <option value="CSE">CSE</option>
+        <option value="CSE-AI">CSE AI</option>
+        <option value="CSE-DS">CSE DS</option>
+        <option value="CSE-AIML">CSE AIML</option>
+        <option value="CSE-IOT">CSE IOT</option>
+      </select>
+
+      <!-- Year of Study -->
+      <label for="yearOfStudy">Year of Study:</label>
+      <select id="yearOfStudy" required>
+        <option value="" disabled selected>Select Year</option>
+        <option value="1">1st Year</option>
+        <option value="2">2nd Year</option>
+        <option value="3">3rd Year</option>
+        <option value="4">4th Year</option>
+      </select>
+
+      <!-- Calendar Year -->
+      <label for="year">Exam Year:</label>
+      <select id="year" required>
+        <option value="" disabled selected>Select Exam Year</option>
+        <option value="2025">2025</option>
+        <option value="2024">2024</option>
+        <option value="2023">2023</option>
+        <option value="2022">2022</option>
+        <option value="2021">2021</option>
+      </select>
+
+      <!-- Semester -->
+      <label for="semester">Semester:</label>
+      <select id="semester" required>
+        <option value="" disabled selected>Select Semester</option>
+        <option value="sem1">Semester 1</option>
+        <option value="sem2">Semester 2</option>
+        <option value="sem3">Semester 3</option>
+        <option value="sem4">Semester 4</option>
+        <option value="sem5">Semester 5</option>
+        <option value="sem6">Semester 6</option>
+        <option value="sem7">Semester 7</option>
+        <option value="sem8">Semester 8</option>
+      </select>
+
+      <!-- Subject -->
+      <label for="subject">Subject Name:</label>
+      <input type="text" id="subject" placeholder="e.g. Data Structures" required>
+
+      <!-- File Input -->
+      <label for="fileInput">Select PDF File:</label>
+      <div class="file-input-wrapper">
+        <input type="file" id="fileInput" accept=".pdf" required>
+      </div>
+
+      <button type="submit" id="uploadBtn">📤 Upload Paper</button>
+      
+      <p id="status"></p>
+    </form>
+    
+    <a href="index.html" class="back-link">← Back to Home</a>
+  </div>
+
+  <script type="module" src="upload.js"></script>
+</body>
+</html>

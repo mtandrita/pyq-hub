@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- JS -->
+    <script type="module" src="signup.js" defer></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style1.css">
+
+    <title>Sign Up - PYQ HUB</title>
+</head>
+<body>
+  <div class="container">
+    <h2>🎓 Create Account</h2>
+    <p class="subtitle">Join PYQ HUB today</p>
+    <form id="signupForm">
+      <!-- Full Name -->
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+      <!-- Year -->
+      <label for="year">Year:</label>
+      <select id="year" name="year" required>
+        <option value="" disabled selected>Select your year</option>
+        <option value="1">1st Year</option>
+        <option value="2">2nd Year</option>
+        <option value="3">3rd Year</option>
+        <option value="4">4th Year</option>
+      </select>
+
+      <!-- Stream -->
+      <label for="stream">Stream:</label>
+      <select id="stream" name="stream" required>
+        <option value="" disabled selected>Select your stream</option>
+        <option value="CSE">CSE</option>
+        <option value="CSE AI">CSE AI</option>
+        <option value="CSE DS">CSE DS</option>
+        <option value="CSE AIML">CSE AIML</option>
+        <option value="CSE IOT">CSE IOT</option>
+      </select>
+
+      <!-- College Email -->
+      <label for="email">College Email:</label>
+      <input type="email" id="email" name="email" placeholder="example@uem.edu.in" required>
+
+      <!-- Password -->
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password (min 6 chars)" required minlength="6">
+
+      <!-- Submit Button -->
+      <button id="submit" type="submit">Sign Up</button>
+    </form>
+    
+    <div class="form-footer">
+      <p>Already have an account? <a href="login.html">Log In</a></p>
+    </div>
+  </div>
+</body>
+</html>

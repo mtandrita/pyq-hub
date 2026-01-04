@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get PYQs</title>
+  <link rel="stylesheet" href="pyq.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Get Previous Year Question Papers</h1>
+  </header>
+
+  <main class="container">
+    <form id="getForm">
+      <!-- Stream -->
+      <div class="form-group">
+        <label for="stream">Stream:</label>
+        <select id="stream" required>
+          <option value="">--Choose Stream--</option>
+          <option value="cse">CSE</option>
+          <option value="cse-ai">CSE AI</option>
+          <option value="cse-ds">CSE DS</option>
+          <option value="cse-aiml">CSE AIML</option>
+          <option value="cse-csbt">CSE CS BT</option>
+          <option value="cse-iot">CSE IoT</option>
+        </select>
+      </div>
+
+      <!-- Year -->
+      <div class="form-group">
+        <label for="year">Year:</label>
+        <select id="year" required>
+          <option value="">--Choose Year--</option>
+          <option value="2024">2024</option>
+          <option value="2023">2023</option>
+          <option value="2022">2022</option>
+        </select>
+      </div>
+
+      <!-- Semester -->
+      <div class="form-group">
+        <label for="semester">Semester:</label>
+        <select id="semester" required>
+          <option value="">--Choose Semester--</option>
+          <option value="sem1">Semester 1</option>
+          <option value="sem2">Semester 2</option>
+          <option value="sem3">Semester 3</option>
+          <option value="sem4">Semester 4</option>
+          <option value="sem5">Semester 5</option>
+          <option value="sem6">Semester 6</option>
+          <option value="sem7">Semester 7</option>
+          <option value="sem8">Semester 8</option>
+        </select>
+      </div>
+
+      <!-- Subject -->
+      <div class="form-group">
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" placeholder="e.g. Data Structures" required>
+      </div>
+
+      <button type="submit">Get Papers</button>
+    </form>
+
+    <div id="results"></div>
+  </main>
+
+  <!-- Firebase SDKs -->
+  <script type="module" src="get-pyqs.js"></script>
+</body>
+</html>
