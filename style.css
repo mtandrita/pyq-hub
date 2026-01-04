@@ -1,57 +1,74 @@
 
 *{
-    margin:0;
-    font-family:Arial ;
-    border:border-box; /*it can be skipped*/
+  margin:0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  box-sizing: border-box;
 }
 
 /*nav bar */
 
 .navbar {
-     display: flex;
-    background-color:#003153;
-     padding: 6px 20px; /* Reduced height */
-   
-    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #003153 0%, #004d7a 100%);
+  padding: 4px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  height: 40px;
 }
 
-.picture{
-    background-image: url("UEM\ LOGO\ 1.jpg");
-    background-size: cover;
-    height: 75px;
-    width: 110px;
-    margin-right: 40px;
-    margin-left:5px ;
+.brand {
+    display: flex;
+    align-items: center;
+  gap: 6px;
 }
 
-.logo{
-   font-family:cursive;
-font-size: 30px;
-color:white;
-margin-right:900px ;
- white-space: nowrap;
+.nav-logo {
+  height: 20px;            /* compact logo size */
+  width: auto;
+  max-height: 28px;
+  border-radius: 4px;
+  display: inline-block;
+  vertical-align: middle;  /* align with brand text */
+  image-rendering: -webkit-optimize-contrast;
+}
+
+.brand-name {
+    font-family: 'Georgia', cursive;
+  font-size: 18px;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 1px;
+  line-height: 1;           /* keep text tight next to logo */
 }
 
 .sidebar {
-  display: flex;           /* Makes children sit in a row */
-  gap: 20px;               /* Adds space between the items */
-  align-items: center;     /* Vertically centers items if needed */
+    display: flex;
+    gap: 3px;
+    align-items: center;
 }
 
 .nav-item a {
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
-  padding: 10px 12px;
-  display: inline-block;
-   white-space: nowrap;
- 
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
 }
 
 .nav-item a:hover {
-  background-color: white;
-  color: navy;
-  border-radius: 4px;
+    background-color: rgba(255,255,255,0.2);
+    transform: translateY(-1px);
+}
+
+.nav-item.account-btn > a {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.3);
 }
 
 
